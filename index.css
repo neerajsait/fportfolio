@@ -2232,6 +2232,56 @@ a:hover {
     .boot-ascii {
         font-size: 0.32rem;
     }
+
+    /* ---- Desktop Hero: mobile layout ---- */
+    .desktop-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+        transform: translate(-50%, -50%);
+        top: 55%;
+        width: 90%;
+        max-width: 360px;
+    }
+
+    .ascii-portrait {
+        display: none;
+        /* ASCII portrait clips badly on mobile */
+    }
+
+    .matrix-name {
+        font-size: 1.3rem;
+        letter-spacing: 0;
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.3;
+    }
+
+    .matrix-tagline {
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .matrix-name-block {
+        align-items: center;
+    }
+
+    .matrix-cursor {
+        margin: 6px auto 0;
+    }
+
+    /* Push icons into compact top grid */
+    .desktop-icons {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        max-width: 360px;
+    }
 }
 
 /* ===================================================================
