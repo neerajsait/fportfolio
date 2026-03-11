@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeerajOS | Tiruveedhi Neeraj Venkata Sai — Portfolio</title>
+    <meta name="description"
+        content="Interactive OS-style portfolio of Tiruveedhi Neeraj Venkata Sai — Full-Stack Developer, Cybersecurity Enthusiast, CS Student at KL University">
+
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ==================== BOOT SEQUENCE ==================== -->
+    <div id="boot-screen">
+        <div class="boot-scanline"></div>
+        <div class="boot-content">
+            <pre id="boot-ascii" class="boot-ascii"></pre>
+            <div id="boot-log" class="boot-log"></div>
+            <div class="boot-progress">
+                <div id="boot-bar" class="boot-bar"></div>
+            </div>
+            <p id="boot-status" class="boot-status">Initializing...</p>
+            <p id="boot-visitor" class="boot-visitor"></p>
+        </div>
+    </div>
+
+    <!-- ==================== DESKTOP ==================== -->
+    <div id="desktop" class="desktop hidden">
+
+        <!-- Animated mesh background -->
+        <canvas id="bg-canvas" class="bg-canvas"></canvas>
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-window="about" id="icon-about">
+                <div class="icon-img"><i class='bx bx-user-circle'></i></div>
+                <span>About Me</span>
+            </div>
+            <div class="desktop-icon" data-window="skills" id="icon-skills">
+                <div class="icon-img"><i class='bx bx-code-alt'></i></div>
+                <span>Skills</span>
+            </div>
+            <div class="desktop-icon" data-window="projects" id="icon-projects">
+                <div class="icon-img"><i class='bx bx-folder-open'></i></div>
+                <span>Projects</span>
+            </div>
+            <div class="desktop-icon" data-window="certifications" id="icon-certs">
+                <div class="icon-img"><i class='bx bx-certification'></i></div>
+                <span>Certifications</span>
+            </div>
+            <div class="desktop-icon" data-window="contact" id="icon-contact">
+                <div class="icon-img"><i class='bx bx-envelope'></i></div>
+                <span>Contact</span>
+            </div>
+            <div class="desktop-icon" data-window="apps" id="icon-apps">
+                <div class="icon-img apps-icon"><i class='bx bx-layer'></i></div>
+                <span>Apps</span>
+            </div>
+            <div class="desktop-icon" data-window="terminal" id="icon-terminal">
+                <div class="icon-img terminal-icon"><i class='bx bx-terminal'></i></div>
+                <span>Terminal</span>
+            </div>
+        </div>
+
+        <!-- Desktop Hero: ASCII Portrait + Matrix Name -->
+        <div class="desktop-hero" id="desktop-hero">
+            <pre class="ascii-portrait" id="ascii-portrait" aria-hidden="true"></pre>
+            <div class="matrix-name-block">
+                <h1 class="matrix-name" id="matrix-name"></h1>
+                <p class="matrix-tagline" id="matrix-tagline"></p>
+                <div class="matrix-cursor"></div>
+            </div>
+        </div>
+
+        <!-- ==================== WINDOWS ==================== -->
+
+        <!-- ===== ABOUT WINDOW ===== -->
+        <div class="os-window" id="window-about" data-title="About Me">
+            <div class="window-titlebar">
+                <div class="titlebar-buttons">
+                    <button class="tb-btn tb-close" data-action="close" aria-label="Close"></button>
+                    <button class="tb-btn tb-minimize" data-action="minimize" aria-label="Minimize"></button>
+                    <button class="tb-btn tb-maximize" data-action="maximize" aria-label="Maximize"></button>
+                </div>
+                <span class="titlebar-title"><i class='bx bx-user-circle'></i> About Me</span>
+                <div class="titlebar-spacer"></div>
+            </div>
+            <div class="window-body">
+                <div class="win-content about-content">
+                    <!-- Hero Section -->
+                    <div class="about-hero">
+                        <div class="about-avatar-ring">
+                            <div class="about-avatar-inner">
+                                <i class='bx bx-user' style="font-size:3.5rem;color:var(--accent)"></i>
+                            </div>
+                        </div>
+                        <div class="about-intro">
+                            <h1>Tiruveedhi Neeraj Venkata <span class="glow-text">Sai</span></h1>
+                            <p class="about-tagline">Computer Science Student • Full-Stack Developer • Cybersecurity
+                                Enthusiast</p>
+                            <p class="about-description">Passionate third-year CSE student at KL University building
+                                impactful web applications, exploring AI/cloud/security.</p>
+                            <div class="about-social">
+                                <a href="https://www.linkedin.com/in/neerajsait/" target="_blank"
+                                    rel="noopener noreferrer" class="social-pill"><i class='bx bxl-linkedin'></i>
+                                    LinkedIn</a>
+                                <a href="https://github.com/neerajsait" target="_blank" rel="noopener noreferrer"
+                                    class="social-pill"><i class='bx bxl-github'></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- How to use NeerajOS -->
+                    <div class="glass-card tips-card">
+                        <h3 class="card-heading"><i class='bx bx-bulb'></i> How to use NeerajOS</h3>
+                        <div class="tips-list">
+                            <div class="tip-row"><i class='bx bx-pointer'></i> <strong>Click</strong> any desktop icon
+                                to open its window</div>
+                            <div class="tip-row"><i class='bx bx-move'></i> <strong>Drag</strong> windows by their title
+                                bar to reposition</div>
+                            <div class="tip-row"><i class='bx bx-terminal'></i> Open <strong>Terminal</strong> and type
+                                <code>help</code>, <code>neofetch</code>, <code>whoami</code>
+                            </div>
+                            <div class="tip-row"><i class='bx bx-grid-alt'></i> Click the <strong>Start button</strong>
+                                (bottom-left) for quick access</div>
+                            <div class="tip-row"><i class='bx bx-dock-bottom'></i> <strong>Taskbar</strong> shows open
+                                windows — click to focus or minimize</div>
+                        </div>
+                    </div>
+
+                    <!-- Bio -->
+                    <div class="glass-card">
+                        <h3 class="card-heading"><i class='bx bx-info-circle'></i> Who am I?</h3>
+                        <p class="card-text">I'm Tiruveedhi Neeraj Venkata Sai, a passionate Computer Science student
+                            with a keen interest in building impactful web applications. With a strong foundation in
+                            Java, Python, and full-stack development, I enjoy exploring new technologies and solving
+                            real-world problems through code. I'm currently working on multiple
+                            projects involving cybersecurity, data analysis, and intelligent web platforms.</p>
+                    </div>
+
+                    <!-- Education Timeline -->
+                    <h3 class="section-heading"><i class='bx bx-time-five'></i> Education Timeline</h3>
+                    <div class="edu-timeline">
+                        <div class="edu-track">
+                            <div class="edu-node">
+                                <div class="edu-dot"></div>
+                                <div class="edu-card glass-card">
+                                    <span class="edu-year">2019–2020</span>
+                                    <h4>10th Grade</h4>
+                                    <p>Completed at Bharatiya Vidya Bhavan's Public School (CBSE) in Bhimavaram with
+                                        413/500. Actively participated in sports, quizzes, and debates, developing
+                                        teamwork and leadership skills.</p>
+                                </div>
+                            </div>
+                            <div class="edu-node">
+                                <div class="edu-dot"></div>
+                                <div class="edu-card glass-card">
+                                    <span class="edu-year">2020–2022</span>
+                                    <h4>Intermediate</h4>
+                                    <p>Achieved 908/1000 at Tirumala Junior College. Developed strong problem-solving
+                                        skills in mathematics and scored 89 percentile in JEE Mains 2022, solidifying my
+                                        engineering aspirations.</p>
+                                </div>
+                            </div>
+                            <div class="edu-node">
+                                <div class="edu-dot"></div>
+                                <div class="edu-card glass-card">
+                                    <span class="edu-year">2022–Present</span>
+                                    <h4>Engineering (B.Tech CSE)</h4>
+                                    <p>Currently in 3rd year of CSE at Koneru Lakshmaiah University with 9.22 CGPA.
+                                        Proficient in C, Java, Python, and full-stack concepts. Serving as peer mentor
+                                        and LEAD member, enhancing leadership and technical skills.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div class="glass-card">
+                        <h3 class="card-heading"><i class='bx bx-trophy'></i> Achievements</h3>
+                        <ul class="achievement-list">
+                            <li><span class="achievement-emoji">🛡️</span> Developed an Email Scanning tool using Flask
+                                &amp; React with phishing and spam detection APIs</li>
+                            <li><span class="achievement-emoji">📈</span> Finalist in University Innovation Challenge
+                                for Placement Interaction System project</li>
+                            <li><span class="achievement-emoji">🎓</span> LEAD member contributing to student mentoring
+                                and grievance resolution at KL University</li>
+                            <li><span class="achievement-emoji">🧠</span> Participated in hackathons and solved 200+
+                                problems on LeetCode and HackerRank</li>
+                            <li><span class="achievement-emoji">📚</span> Presented term paper on "Digital Forensics" in
+                                cybersecurity research forum</li>
+                        </ul>
+                    </div>
+
+                    <!-- GitHub Activity Widget -->
+                    <h3 class="section-heading"><i class='bx bxl-github'></i> GitHub Activity</h3>
+                    <div class="github-widget" id="github-widget">
+                        <div class="gh-stats-row">
+                            <div class="gh-stat-card">
+                                <i class='bx bx-git-repo-forked'></i>
+                                <span class="gh-stat-value" id="gh-repos">—</span>
+                                <span class="gh-stat-label">Repos</span>
+                            </div>
+                            <div class="gh-stat-card">
+                                <i class='bx bx-group'></i>
+                                <span class="gh-stat-value" id="gh-followers">—</span>
+                                <span class="gh-stat-label">Followers</span>
+                            </div>
+                            <div class="gh-stat-card">
+                                <i class='bx bx-user-plus'></i>
+                                <span class="gh-stat-value" id="gh-following">—</span>
+                                <span class="gh-stat-label">Following</span>
+                            </div>
+                            <div class="gh-stat-card">
+                                <i class='bx bx-code-curly'></i>
+                                <span class="gh-stat-value" id="gh-gists">—</span>
+                                <span class="gh-stat-label">Gists</span>
+                            </div>
+                        </div>
+                        <div class="gh-charts">
+                            <img src="https://github-readme-stats.vercel.app/api?username=neerajsait&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=0d1117&title_color=00e5ff&icon_color=7c4dff&text_color=a8b8d0"
+                                alt="GitHub Stats" class="gh-chart-img" loading="lazy">
+                            <img src="https://github-readme-streak-stats.herokuapp.com/?user=neerajsait&theme=midnight-purple&hide_border=true&background=0d1117&ring=00e5ff&fire=ff4081&currStreakLabel=00e5ff"
+                                alt="GitHub Streak" class="gh-chart-img" loading="lazy">
+                        </div>
+                        <a href="https://github.com/neerajsait" target="_blank" rel="noopener noreferrer"
+                            class="gh-profile-link">
+                            <i class='bx bxl-github'></i> View Full Profile on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SKILLS WINDOW ===== -->
+        <div class="os-window" id="window-skills" data-title="Skills">
+            <div class="window-titlebar">
+                <div class="titlebar-buttons">
+                    <button class="tb-btn tb-close" data-action="close"></button>
+                    <button class="tb-btn tb-minimize" data-action="minimize"></button>
+                    <button class="tb-btn tb-maximize" data-action="maximize"></button>
+                </div>
+                <span class="titlebar-title"><i class='bx bx-code-alt'></i> Skills</span>
+                <div class="titlebar-spacer"></div>
+            </div>
+            <div class="window-body">
+                <div class="win-content">
+                    <h2 class="win-heading">My <span class="glow-text">Skills</span></h2>
+                    <p class="win-subheading">Technologies I've worked with and mastered</p>
+                    <div class="skills-mosaic">
+                        <!-- Frontend -->
+                        <div class="skill-tile" style="--tile-accent:#ff6b6b">
+                            <div class="tile-header"><i class="fas fa-code"></i>
+                                <h4>Frontend</h4>
+                            </div>
+                            <div class="tile-chips">
+                                <span class="chip"><i class="fab fa-html5"></i> HTML5</span>
+                                <span class="chip"><i class="fab fa-css3-alt"></i> CSS3</span>
+                                <span class="chip"><i class="fab fa-js"></i> JavaScript</span>
+                                <span class="chip"><i class="fab fa-react"></i> React.js</span>
+                                <span class="chip"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                            </div>
+                        </div>
+                        <!-- Backend -->
+                        <div class="skill-tile" style="--tile-accent:#48dbfb">
+                            <div class="tile-header"><i class="fas fa-server"></i>
+                                <h4>Backend</h4>
+                            </div>
+                            <div class="tile-chips">
+                                <span class="chip"><i class="fab fa-python"></i> Python</span>
+                                <span class="chip"><i class="fab fa-java"></i> Java</span>
+                                <span class="chip"><i class="fas fa-leaf"></i> Spring Boot</span>
+                                <span class="chip"><i class="fas fa-flask"></i> Flask</span>
+                            </div>
+                        </div>
+                        <!-- Database & IDEs -->
+                        <div class="skill-tile" style="--tile-accent:#1dd1a1">
+                            <div class="tile-header"><i class="fas fa-database"></i>
+                                <h4>Database &amp; IDEs</h4>
+                            </div>
+                            <div class="tile-chips">
+                                <span class="chip"><i class="fas fa-database"></i> MySQL</span>
+                                <span class="chip"><i class="fas fa-database"></i> MongoDB</span>
+                                <span class="chip"><i class="fas fa-code"></i> VS Code</span>
+                                <span class="chip"><i class="fas fa-code"></i> Eclipse</span>
+                                <span class="chip"><i class="fas fa-code"></i> PyCharm</span>
+                            </div>
+                        </div>
+                        <!-- Tools -->
+                        <div class="skill-tile" style="--tile-accent:#f368e0">
+                            <div class="tile-header"><i class="fas fa-tools"></i>
+                                <h4>Tools</h4>
+                            </div>
+                            <div class="tile-chips">
+                                <span class="chip"><i class="fab fa-github"></i> GitHub</span>
+                                <span class="chip"><i class="fab fa-figma"></i> Figma</span>
+                                <span class="chip"><i class="fas fa-flask"></i> Postman</span>
+                                <span class="chip"><i class="fas fa-chart-pie"></i> Tableau</span>
+                                <span class="chip"><i class="fas fa-database"></i> Pandas &amp; NumPy</span>
+                                <span class="chip"><i class="fas fa-chart-bar"></i> Matplotlib &amp; Seaborn</span>
+                            </div>
+                        </div>
+                        <!-- Cyber-Tools -->
+                        <div class="skill-tile" style="--tile-accent:#a55eea">
+                            <div class="tile-header"><i class="fas fa-shield-alt"></i>
+                                <h4>Cyber-Tools</h4>
+                            </div>
+                            <div class="tile-chips">
+                                <span class="chip"><i class="fas fa-project-diagram"></i> Maltego</span>
+                                <span class="chip"><i class="fas fa-user-secret"></i> openSTego</span>
+                                <span class="chip"><i class="fas fa-shield-alt"></i> SIEM</span>
+                                <span class="chip"><i class="fas fa-network-wired"></i> Wireshark</span>
+                            </div>
+                        </div>
+                        <!-- DevOps & Deployment -->
+                        <div class="skill-tile" style="--tile-accent:#feca57">
+                            <div class="tile-header"><i class="fas fa-cloud-upload-alt"></i>
+                                <h4>DevOps &amp; Deployment</h4>
+                            </div>
+                            <div class="tile-chips">
+                                <span class="chip"><i class="fab fa-docker"></i> Docker</span>
+                                <span class="chip"><i class="fas fa-cogs"></i> CI/CD (GitHub Actions)</span>
+                                <span class="chip"><i class="fas fa-server"></i> Linux</span>
+                                <span class="chip"><i class="fab fa-aws"></i> AWS</span>
+                                <span class="chip"><i class="fas fa-network-wired"></i> Nginx</span>
+                            </div>
+                        </div>
+                        <!-- Cloud & Platforms -->
+                        <div class="skill-tile" style="--tile-accent:#70a1ff">
+                            <div class="tile-header"><i class="fas fa-cloud"></i>
+                                <h4>Cloud &amp; Platforms</h4>
+                            </div>
+                            <div class="tile-chips">
+                                <span class="chip"><i class="fab fa-google"></i> Google Cloud</span>
+                                <span class="chip"><i class="fab fa-aws"></i> AWS</span>
+                                <span class="chip"><i class="fas fa-globe"></i> Netlify</span>
+                                <span class="chip"><i class="fas fa-upload"></i> Vercel</span>
+                            </div>
+                        </div>
+                        <!-- Soft Skills -->
+                        <div class="skill-tile" style="--tile-accent:#ffa502">
+                            <div class="tile-header"><i class="fas fa-user-friends"></i>
+                                <h4>Soft Skills</h4>
+                            </div>
+                            <div class="tile-chips">
+                                <span class="chip"><i class="fas fa-comments"></i> Communication</span>
+                                <span class="chip"><i class="fas fa-users"></i> Teamwork</span>
+                                <span class="chip"><i class="fas fa-lightbulb"></i> Problem Solving</span>
+                                <span class="chip"><i class="fas fa-clock"></i> Time Management</span>
+                                <span class="chip"><i class="fas fa-brain"></i> Critical Thinking</span>
+                                <span class="chip"><i class="fas fa-bolt"></i> Adaptability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PROJECTS WINDOW ===== -->
+        <div class="os-window" id="window-projects" data-title="Projects">
+            <div class="window-titlebar">
+                <div class="titlebar-buttons">
+                    <button class="tb-btn tb-close" data-action="close"></button>
+                    <button class="tb-btn tb-minimize" data-action="minimize"></button>
+                    <button class="tb-btn tb-maximize" data-action="maximize"></button>
+                </div>
+                <span class="titlebar-title"><i class='bx bx-folder-open'></i> Projects</span>
+                <div class="titlebar-spacer"></div>
+            </div>
+            <div class="window-body">
+                <div class="win-content">
+                    <h2 class="win-heading">My <span class="glow-text">Projects</span></h2>
+                    <p class="win-subheading">Explore my technical creations and contributions</p>
+                    <div class="projects-list">
+                        <!-- Project 1: Secure Data Management -->
+                        <div class="proj-card">
+                            <div class="proj-color-bar" style="background:linear-gradient(180deg,#f368e0,#a55eea)">
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-header">
+                                    <h4>Secure Data Management</h4>
+                                    <span class="proj-status live">Active</span>
+                                </div>
+                                <p class="proj-desc">A Flask-based web application for securely managing user data with
+                                    encryption and OTP authentication.</p>
+                                <p class="proj-contrib"><strong>My Contribution:</strong> Implemented encryption logic
+                                    and email notifications.</p>
+                                <div class="proj-tech-tags">
+                                    <span>Flask</span><span>SQLAlchemy</span><span>MySQL</span><span>Fernet</span>
+                                </div>
+                                <div class="proj-actions">
+                                    <a href="https://github.com/neerajsait/Security-High" target="_blank"
+                                        rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> View
+                                        on GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 2: Real-Time Network Monitor -->
+                        <div class="proj-card">
+                            <div class="proj-color-bar" style="background:linear-gradient(180deg,#e9f74d,#1dd1a1)">
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-header">
+                                    <h4>Real-Time Network Monitor</h4>
+                                    <span class="proj-status live">Active</span>
+                                </div>
+                                <p class="proj-desc">A full-stack tool to analyze, monitor, and visualize network
+                                    traffic in real time using Flask, SocketIO, and Scapy. Detects anomalies, Tor/VPN
+                                    traffic, and port scans.</p>
+                                <p class="proj-contrib"><strong>My Contribution:</strong> Developed end-to-end system
+                                    with live packet capture, GeoIP lookups, anomaly alerts, and interactive dashboards.
+                                </p>
+                                <div class="proj-tech-tags">
+                                    <span>Python</span><span>Flask</span><span>Scapy</span><span>SocketIO</span><span>psutil</span>
+                                </div>
+                                <div class="proj-actions">
+                                    <a href="https://github.com/neerajsait/Network-Monitor" target="_blank"
+                                        rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> View
+                                        on GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 3: Hotel Management -->
+                        <div class="proj-card">
+                            <div class="proj-color-bar" style="background:linear-gradient(180deg,#48dbfb,#0abde3)">
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-header">
+                                    <h4>Hotel Management System</h4>
+                                    <span class="proj-status upcoming">Coming Soon</span>
+                                </div>
+                                <p class="proj-desc">A collaborative team project to build a Hotel Management System
+                                    using Python Django and PostgreSQL.</p>
+                                <p class="proj-contrib"><strong>My Contribution:</strong> Designed and implemented the
+                                    user interface for smooth booking experience.</p>
+                                <div class="proj-tech-tags">
+                                    <span>Python</span><span>Django</span><span>PostgreSQL</span><span>Git</span>
+                                </div>
+                                <div class="proj-actions">
+                                    <span class="proj-link disabled"><i class="fas fa-external-link-alt"></i> Demo
+                                        Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 4: Campus Recruitment System -->
+                        <div class="proj-card">
+                            <div class="proj-color-bar" style="background:linear-gradient(180deg,#1dd1a1,#10ac84)">
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-header">
+                                    <h4>Campus Recruitment System</h4>
+                                    <span class="proj-status live">Active</span>
+                                </div>
+                                <p class="proj-desc">A platform streamlining campus hiring processes with job postings,
+                                    application management, and interview scheduling.</p>
+                                <p class="proj-contrib"><strong>My Contribution:</strong> Developed recruiter-side
+                                    functionalities and ensured intuitive UI.</p>
+                                <div class="proj-tech-tags">
+                                    <span>Java</span><span>Spring Boot</span><span>MySQL</span>
+                                </div>
+                                <div class="proj-actions">
+                                    <a href="https://github.com/neerajsait/RecruiterService" target="_blank"
+                                        rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> View
+                                        on GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 5: Online Bus Reservation -->
+                        <div class="proj-card">
+                            <div class="proj-color-bar" style="background:linear-gradient(180deg,#ff6b6b,#ee5a24)">
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-header">
+                                    <h4>Online Bus Reservation</h4>
+                                    <span class="proj-status live">Live</span>
+                                </div>
+                                <p class="proj-desc">A team project where we developed an effective online bus booking
+                                    platform using the MERN stack, offering a seamless booking experience.</p>
+                                <p class="proj-contrib"><strong>My Contribution:</strong> Improved frontend experience,
+                                    API integration for real-time data management.</p>
+                                <div class="proj-tech-tags">
+                                    <span>MongoDB</span><span>Express.js</span><span>React</span><span>Node.js</span>
+                                </div>
+                                <div class="proj-actions">
+                                    <a href="https://mswd-seven.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                        class="proj-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="https://github.com/neerajsait/Express-Ride" target="_blank"
+                                        rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i>
+                                        Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CERTIFICATIONS WINDOW ===== -->
+        <div class="os-window" id="window-certifications" data-title="Certifications">
+            <div class="window-titlebar">
+                <div class="titlebar-buttons">
+                    <button class="tb-btn tb-close" data-action="close"></button>
+                    <button class="tb-btn tb-minimize" data-action="minimize"></button>
+                    <button class="tb-btn tb-maximize" data-action="maximize"></button>
+                </div>
+                <span class="titlebar-title"><i class='bx bx-certification'></i> Certifications</span>
+                <div class="titlebar-spacer"></div>
+            </div>
+            <div class="window-body">
+                <div class="win-content">
+                    <h2 class="win-heading">My <span class="glow-text">Certifications</span></h2>
+                    <p class="win-subheading">Professional credentials validating my technical expertise</p>
+                    <div class="certs-grid">
+                        <div class="cert-card"
+                            data-cert-url="https://badgr.com/public/assertions/n6jEBEhGRbqsh5MiCcuEjQ"
+                            style="--cert-accent:#FF6C37">
+                            <div class="cert-glow"></div>
+                            <div class="cert-icon-wrap"><i class="fas fa-paper-plane"></i></div>
+                            <h4>Postman API Fundamentals</h4>
+                            <p class="cert-issuer">Postman</p>
+                            <div class="cert-badge"><i class="fas fa-certificate"></i> Verified</div>
+                        </div>
+                        <div class="cert-card"
+                            data-cert-url="https://trailhead.salesforce.com/en/credentials/verification/"
+                            style="--cert-accent:#00A1E0">
+                            <div class="cert-glow"></div>
+                            <div class="cert-icon-wrap"><i class="fas fa-cloud"></i></div>
+                            <h4>Salesforce AI Associate</h4>
+                            <p class="cert-issuer">Salesforce</p>
+                            <div class="cert-badge"><i class="fas fa-certificate"></i> Verified</div>
+                        </div>
+                        <div class="cert-card"
+                            data-cert-url="https://learn.microsoft.com/en-in/users/tiruveedhineerajvenkatasai-1148/credentials/7f6ad6c42a923f73"
+                            style="--cert-accent:#0078D4">
+                            <div class="cert-glow"></div>
+                            <div class="cert-icon-wrap"><i class="fab fa-microsoft"></i></div>
+                            <h4>Azure AI Fundamentals</h4>
+                            <p class="cert-issuer">Microsoft (AI-900)</p>
+                            <div class="cert-badge"><i class="fas fa-certificate"></i> Verified</div>
+                        </div>
+                        <div class="cert-card"
+                            data-cert-url="https://www.credly.com/badges/4b61af02-e6d6-409b-a4e3-fc3f95f401c4/public_url"
+                            style="--cert-accent:#FF9900">
+                            <div class="cert-glow"></div>
+                            <div class="cert-icon-wrap"><i class="fab fa-aws"></i></div>
+                            <h4>AWS Cloud Practitioner</h4>
+                            <p class="cert-issuer">Amazon AWS</p>
+                            <div class="cert-badge"><i class="fas fa-certificate"></i> Verified</div>
+                        </div>
+                        <div class="cert-card" style="--cert-accent:#E74C3C">
+                            <div class="cert-glow"></div>
+                            <div class="cert-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+                            <h4>Java Programming</h4>
+                            <p class="cert-issuer">NPTEL (IIT)</p>
+                            <div class="cert-badge"><i class="fas fa-check-circle"></i> Completed</div>
+                        </div>
+                        <div class="cert-card" style="--cert-accent:#D0021B">
+                            <div class="cert-glow"></div>
+                            <div class="cert-icon-wrap"><i class="fas fa-language"></i></div>
+                            <h4>Linguaskills (B1)</h4>
+                            <p class="cert-issuer">Cambridge English</p>
+                            <div class="cert-badge"><i class="fas fa-check-circle"></i> Completed</div>
+                        </div>
+
+                        <div class="cert-card"
+                            data-cert-url="https://www.credly.com/badges/5bd6f98f-f1cf-4e3f-8c59-c330e0fb5c19/public_url"
+                            style="--cert-accent:#1BA0D7">
+                            <div class="cert-glow"></div>
+                            <div class="cert-icon-wrap"><i class="fas fa-chart-bar"></i></div>
+                            <h4>Data Analyst</h4>
+                            <p class="cert-issuer">Cisco</p>
+                            <div class="cert-badge"><i class="fas fa-certificate"></i> Verified</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CONTACT WINDOW ===== -->
+        <div class="os-window" id="window-contact" data-title="Contact">
+            <div class="window-titlebar">
+                <div class="titlebar-buttons">
+                    <button class="tb-btn tb-close" data-action="close"></button>
+                    <button class="tb-btn tb-minimize" data-action="minimize"></button>
+                    <button class="tb-btn tb-maximize" data-action="maximize"></button>
+                </div>
+                <span class="titlebar-title"><i class='bx bx-envelope'></i> Contact</span>
+                <div class="titlebar-spacer"></div>
+            </div>
+            <div class="window-body">
+                <div class="win-content contact-content">
+                    <div class="contact-hero">
+                        <h2>Let's <span class="glow-text">Connect</span></h2>
+                        <p>I'm always open to new opportunities and collaborations.<br>Let's collaborate on your next
+                            project!</p>
+                    </div>
+                    <div class="contact-cards">
+                        <a href="mailto:2200030957@kluniversity.in" class="contact-info-card glass-card">
+                            <i class='bx bx-envelope'></i>
+                            <h4>Email</h4>
+                            <p>2200030957@kluniversity.in</p>
+                        </a>
+                        <a href="tel:+919642292282" class="contact-info-card glass-card">
+                            <i class='bx bx-phone'></i>
+                            <h4>Phone</h4>
+                            <p>+91 9642292282</p>
+                        </a>
+                        <div class="contact-info-card glass-card">
+                            <i class='bx bx-map'></i>
+                            <h4>Location</h4>
+                            <p>Vijayawada, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="https://linkedin.com/in/neerajsait/" target="_blank" rel="noopener noreferrer"
+                            class="action-btn"><i class='bx bxl-linkedin'></i> LinkedIn</a>
+                        <a href="https://github.com/neerajsait" target="_blank" rel="noopener noreferrer"
+                            class="action-btn"><i class='bx bxl-github'></i> GitHub</a>
+                        <a href="mailto:2200030957@kluniversity.in" class="action-btn outline-btn"><i
+                                class='bx bx-paper-plane'></i> Get In Touch</a>
+                        <a href="media/resume.pdf" download class="action-btn primary-btn"><i
+                                class='bx bx-download'></i> Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== TERMINAL WINDOW ===== -->
+        <div class="os-window" id="window-terminal" data-title="Terminal">
+            <div class="window-titlebar terminal-titlebar">
+                <div class="titlebar-buttons">
+                    <button class="tb-btn tb-close" data-action="close"></button>
+                    <button class="tb-btn tb-minimize" data-action="minimize"></button>
+                    <button class="tb-btn tb-maximize" data-action="maximize"></button>
+                </div>
+                <span class="titlebar-title"><i class='bx bx-terminal'></i> neeraj@portfolio:~</span>
+                <div class="titlebar-spacer"></div>
+            </div>
+            <div class="window-body terminal-body">
+                <div id="terminal-output" class="terminal-output"></div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">visitor@neerajOS:~$</span>
+                    <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== APPS WINDOW ===== -->
+        <div class="os-window" id="window-apps" data-title="Apps">
+            <div class="window-titlebar">
+                <div class="titlebar-buttons">
+                    <button class="tb-btn tb-close" data-action="close"></button>
+                    <button class="tb-btn tb-minimize" data-action="minimize"></button>
+                    <button class="tb-btn tb-maximize" data-action="maximize"></button>
+                </div>
+                <span class="titlebar-title"><i class='bx bx-layer'></i> My Apps</span>
+                <div class="titlebar-spacer"></div>
+            </div>
+            <div class="window-body">
+                <div class="win-content">
+                    <h2 class="win-heading">My <span class="glow-text">Apps</span></h2>
+                    <p class="win-subheading">Click any app to launch it in your browser</p>
+                    <div class="apps-grid">
+                        <a href="https://github.com/neerajsait/Security-High" target="_blank" rel="noopener noreferrer"
+                            class="app-card">
+                            <div class="app-icon" style="--app-color:#f368e0"><i class='bx bx-lock-alt'></i></div>
+                            <div class="app-info">
+                                <h4>Secure Data Mgmt</h4>
+                                <p class="app-tech">Flask • MySQL • Fernet</p>
+                                <p class="app-desc">Encrypted data management with OTP auth</p>
+                            </div>
+                            <i class='bx bx-link-external app-launch'></i>
+                        </a>
+                        <a href="https://github.com/neerajsait/Network-Monitor" target="_blank"
+                            rel="noopener noreferrer" class="app-card">
+                            <div class="app-icon" style="--app-color:#1dd1a1"><i class='bx bx-wifi'></i></div>
+                            <div class="app-info">
+                                <h4>Network Monitor</h4>
+                                <p class="app-tech">Python • Scapy • SocketIO</p>
+                                <p class="app-desc">Real-time packet capture &amp; anomaly detection</p>
+                            </div>
+                            <i class='bx bx-link-external app-launch'></i>
+                        </a>
+                        <a href="https://github.com/neerajsait/RecruiterService" target="_blank"
+                            rel="noopener noreferrer" class="app-card">
+                            <div class="app-icon" style="--app-color:#48dbfb"><i class='bx bx-briefcase'></i></div>
+                            <div class="app-info">
+                                <h4>Campus Recruiter</h4>
+                                <p class="app-tech">Java • Spring Boot • MySQL</p>
+                                <p class="app-desc">Campus hiring platform for recruiters</p>
+                            </div>
+                            <i class='bx bx-link-external app-launch'></i>
+                        </a>
+                        <a href="https://mswd-seven.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="app-card app-live">
+                            <div class="app-icon" style="--app-color:#ff6b6b"><i class='bx bx-bus'></i></div>
+                            <div class="app-info">
+                                <h4>Express Ride <span class="app-live-badge">LIVE</span></h4>
+                                <p class="app-tech">MongoDB • React • Node.js</p>
+                                <p class="app-desc">Online bus reservation platform</p>
+                            </div>
+                            <i class='bx bx-link-external app-launch'></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TASKBAR ==================== -->
+        <div id="taskbar" class="taskbar">
+            <button class="taskbar-start" id="start-btn" aria-label="Start Menu">
+                <i class='bx bx-grid-alt'></i>
+            </button>
+            <div class="taskbar-divider"></div>
+            <div class="taskbar-windows" id="taskbar-windows"></div>
+            <div class="taskbar-tray">
+                <span id="taskbar-clock" class="taskbar-clock"></span>
+            </div>
+        </div>
+
+        <!-- START MENU -->
+        <div id="start-menu" class="start-menu hidden">
+            <div class="start-header">
+                <div>
+                    <h3>NeerajOS</h3>
+                    <p class="start-sub">Portfolio System v1.0</p>
+                </div>
+                <div class="start-avatar"><i class='bx bx-user'></i></div>
+            </div>
+            <div class="start-items">
+                <div class="start-item" data-window="about"><i class='bx bx-user-circle'></i><span>About Me</span></div>
+                <div class="start-item" data-window="skills"><i class='bx bx-code-alt'></i><span>Skills</span></div>
+                <div class="start-item" data-window="projects"><i class='bx bx-folder-open'></i><span>Projects</span>
+                </div>
+                <div class="start-item" data-window="certifications"><i
+                        class='bx bx-certification'></i><span>Certifications</span></div>
+                <div class="start-item" data-window="contact"><i class='bx bx-envelope'></i><span>Contact</span></div>
+                <div class="start-item" data-window="apps"><i class='bx bx-layer'></i><span>Apps</span></div>
+                <hr class="start-divider">
+                <div class="start-item" data-window="terminal"><i class='bx bx-terminal'></i><span>Terminal</span></div>
+            </div>
+            <div class="start-footer">
+                <span>Developed with ❤️ by Neeraj | © 2026</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

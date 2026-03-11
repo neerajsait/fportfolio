@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neerajsait.github.io/sitemap.xml
