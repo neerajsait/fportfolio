@@ -649,65 +649,163 @@
 
         <!-- ===== APPS WINDOW ===== -->
         <div class="os-window" id="window-apps" data-title="Apps">
-            <div class="window-titlebar">
-                <div class="titlebar-buttons">
-                    <button class="tb-btn tb-close" data-action="close"></button>
-                    <button class="tb-btn tb-minimize" data-action="minimize"></button>
-                    <button class="tb-btn tb-maximize" data-action="maximize"></button>
-                </div>
-                <span class="titlebar-title"><i class='bx bx-layer'></i> My Apps</span>
-                <div class="titlebar-spacer"></div>
-            </div>
-            <div class="window-body">
-                <div class="win-content">
-                    <h2 class="win-heading">My <span class="glow-text">Apps</span></h2>
-                    <p class="win-subheading">Click any app to launch it in your browser</p>
-                    <div class="apps-grid">
-                        <a href="https://github.com/neerajsait/Security-High" target="_blank" rel="noopener noreferrer"
-                            class="app-card">
-                            <div class="app-icon" style="--app-color:#f368e0"><i class='bx bx-lock-alt'></i></div>
-                            <div class="app-info">
-                                <h4>Secure Data Mgmt</h4>
-                                <p class="app-tech">Flask • MySQL • Fernet</p>
-                                <p class="app-desc">Encrypted data management with OTP auth</p>
-                            </div>
-                            <i class='bx bx-link-external app-launch'></i>
-                        </a>
-                        <a href="https://github.com/neerajsait/Network-Monitor" target="_blank"
-                            rel="noopener noreferrer" class="app-card">
-                            <div class="app-icon" style="--app-color:#1dd1a1"><i class='bx bx-wifi'></i></div>
-                            <div class="app-info">
-                                <h4>Network Monitor</h4>
-                                <p class="app-tech">Python • Scapy • SocketIO</p>
-                                <p class="app-desc">Real-time packet capture &amp; anomaly detection</p>
-                            </div>
-                            <i class='bx bx-link-external app-launch'></i>
-                        </a>
-                        <a href="https://github.com/neerajsait/RecruiterService" target="_blank"
-                            rel="noopener noreferrer" class="app-card">
-                            <div class="app-icon" style="--app-color:#48dbfb"><i class='bx bx-briefcase'></i></div>
-                            <div class="app-info">
-                                <h4>Campus Recruiter</h4>
-                                <p class="app-tech">Java • Spring Boot • MySQL</p>
-                                <p class="app-desc">Campus hiring platform for recruiters</p>
-                            </div>
-                            <i class='bx bx-link-external app-launch'></i>
-                        </a>
-                        <a href="https://mswd-seven.vercel.app/" target="_blank" rel="noopener noreferrer"
-                            class="app-card app-live">
-                            <div class="app-icon" style="--app-color:#ff6b6b"><i class='bx bx-bus'></i></div>
-                            <div class="app-info">
-                                <h4>Express Ride <span class="app-live-badge">LIVE</span></h4>
-                                <p class="app-tech">MongoDB • React • Node.js</p>
-                                <p class="app-desc">Online bus reservation platform</p>
-                            </div>
-                            <i class='bx bx-link-external app-launch'></i>
-                        </a>
+    <div class="window-titlebar">
+        <div class="titlebar-buttons">
+            <button class="tb-btn tb-close" data-action="close"></button>
+            <button class="tb-btn tb-minimize" data-action="minimize"></button>
+            <button class="tb-btn tb-maximize" data-action="maximize"></button>
+        </div>
+        <span class="titlebar-title"><i class='bx bx-layer'></i> My Apps</span>
+        <div class="titlebar-spacer"></div>
+    </div>
+    <div class="window-body">
+        <div class="win-content">
+            <h2 class="win-heading">My <span class="glow-text">Apps</span></h2>
+            <p class="win-subheading">Click any app to launch it in your browser</p>
+            <div class="apps-grid">
 
+                <!-- Secure Data Mgmt -->
+                <a href="https://github.com/neerajsait/Security-High" target="_blank" rel="noopener noreferrer"
+                    class="app-card">
+                    <div class="app-icon" style="--app-color:#f368e0"><i class='bx bx-lock-alt'></i></div>
+                    <div class="app-info">
+                        <h4>Secure Data Mgmt</h4>
+                        <p class="app-tech">Flask • MySQL • Fernet</p>
+                        <p class="app-desc">Encrypted data management with OTP auth</p>
+                        <span class="app-strip app-strip--team"><i class='bx bxs-group'></i> Team project</span>
                     </div>
-                </div>
+                    <i class='bx bx-link-external app-launch'></i>
+                </a>
+
+                <!-- Network Monitor — team -->
+                <a href="https://github.com/neerajsait/Network-Monitor" target="_blank" rel="noopener noreferrer"
+                    class="app-card">
+                    <div class="app-icon" style="--app-color:#1dd1a1"><i class='bx bx-wifi'></i></div>
+                    <div class="app-info">
+                        <h4>Network Monitor</h4>
+                        <p class="app-tech">Python • Scapy • SocketIO</p>
+                        <p class="app-desc">Real-time packet capture &amp; anomaly detection</p>
+                        
+                    </div>
+                    <i class='bx bx-link-external app-launch'></i>
+                </a>
+
+                <!-- Campus Recruiter — team -->
+                <a href="https://github.com/neerajsait/RecruiterService" target="_blank" rel="noopener noreferrer"
+                    class="app-card">
+                    <div class="app-icon" style="--app-color:#48dbfb"><i class='bx bx-briefcase'></i></div>
+                    <div class="app-info">
+                        <h4>Campus Recruiter</h4>
+                        <p class="app-tech">Java • Spring Boot • MySQL</p>
+                        <p class="app-desc">Campus hiring platform for recruiters</p>
+                        <span class="app-strip app-strip--team"><i class='bx bxs-group'></i> Team project</span>
+                    </div>
+                    <i class='bx bx-link-external app-launch'></i>
+                </a>
+
+                <!-- Express Ride — live -->
+                <a href="https://mswd-seven.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    class="app-card app-live">
+                    <div class="app-icon" style="--app-color:#ff6b6b"><i class='bx bx-bus'></i></div>
+                    <div class="app-info">
+                        <h4>Express Ride <span class="app-live-badge">LIVE</span></h4>
+                        <p class="app-tech">MongoDB • React • Node.js</p>
+                        <p class="app-desc">Online bus reservation platform</p>
+                    </div>
+                    <i class='bx bx-link-external app-launch'></i>
+                </a>
+
+                <!-- UNO — vibe coded -->
+                <a href="https://github.com/neerajsait/UNO" target="_blank" rel="noopener noreferrer"
+                    class="app-card">
+                    <div class="app-icon" style="--app-color:#fdcb6e"><i class='bx bx-joystick'></i></div>
+                    <div class="app-info">
+                        <h4>UNO</h4>
+                        <p class="app-tech">JavaScript • HTML5 • CSS3</p>
+                        <p class="app-desc">Multiplayer UNO card game in the browser</p>
+                        <span class="app-strip app-strip--vibe"><i class='bx bx-bolt-circle'></i> Vibe coded</span>
+                    </div>
+                    <i class='bx bx-link-external app-launch'></i>
+                </a>
+
+                <!-- Jeevan Planer — vibe coded -->
+                <a href="https://github.com/neerajsait/JeevanPlaner" target="_blank" rel="noopener noreferrer"
+                    class="app-card">
+                    <div class="app-icon" style="--app-color:#6c5ce7"><i class='bx bx-calendar-heart'></i></div>
+                    <div class="app-info">
+                        <h4>Jeevan Planer</h4>
+                        <p class="app-tech">HTML • CSS • JavaScript</p>
+                        <p class="app-desc">Life planning &amp; goal tracking app</p>
+                        <span class="app-strip app-strip--vibe"><i class='bx bx-bolt-circle'></i> Vibe coded</span>
+                    </div>
+                    <i class='bx bx-link-external app-launch'></i>
+                </a>
+
+                <!-- Jobs -->
+                <a href="https://github.com/neerajsait/Jobs" target="_blank" rel="noopener noreferrer"
+                    class="app-card">
+                    <div class="app-icon" style="--app-color:#00b894"><i class='bx bx-search-alt'></i></div>
+                    <div class="app-info">
+                        <h4>Jobs</h4>
+                        <p class="app-tech">Python • Flask </p>
+                        <p class="app-desc">Job listing &amp; application tracker</p>
+                    </div>
+                    <i class='bx bx-link-external app-launch'></i>
+                </a>
+
+                <!-- IndiGadgetChat -->
+                <a href="https://github.com/neerajsait/IndiGadgetChat" target="_blank" rel="noopener noreferrer"
+                    class="app-card">
+                    <div class="app-icon" style="--app-color:#e17055"><i class='bx bx-chat'></i></div>
+                    <div class="app-info">
+                        <h4>IndiGadgetChat</h4>
+                        <p class="app-tech">Python </p>
+                        <p class="app-desc">Python chatbot for Indian gadget recommendations</p>
+                    </div>
+                    <i class='bx bx-link-external app-launch'></i>
+                </a>
+
+                
+
             </div>
         </div>
+    </div>
+</div>
+
+<!-- ── Add these styles to your CSS file ── -->
+<style>
+/* Icon strip pill — base */
+.app-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    width: fit-content;
+}
+
+.app-strip i {
+    font-size: 12px;
+}
+
+/* Vibe coded — warm orange */
+.app-strip--vibe {
+    background: rgba(225, 112, 85, 0.12);
+    color: #e17055;
+    border: 0.5px solid rgba(225, 112, 85, 0.35);
+}
+
+/* Team project — cool blue */
+.app-strip--team {
+    background: rgba(9, 132, 227, 0.1);
+    color: #0984e3;
+    border: 0.5px solid rgba(9, 132, 227, 0.3);
+}
+</style>
 
         <!-- ==================== TASKBAR ==================== -->
         <div id="taskbar" class="taskbar">
