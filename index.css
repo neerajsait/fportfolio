@@ -2370,3 +2370,205 @@ a:hover {
     color: #0984e3;
     border: 0.5px solid rgba(9, 132, 227, 0.3);
 }
+
+
+
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+ 
+/* ── Hero ── */
+.contact-hero {
+    text-align: center;
+    padding-bottom: 0.25rem;
+}
+.contact-hero h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+.contact-hero p {
+    font-size: 0.9rem;
+    color: var(--text-secondary, #888);
+    line-height: 1.65;
+}
+ 
+/* ── Status ── */
+.contact-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary, #888);
+}
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
+    flex-shrink: 0;
+    animation: contact-pulse 2s ease-in-out infinite;
+}
+@keyframes contact-pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2); }
+    50%       { box-shadow: 0 0 0 7px rgba(52, 211, 153, 0.06); }
+}
+ 
+/* ── Divider ── */
+.contact-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.contact-divider::before,
+.contact-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color, rgba(255,255,255,0.08));
+}
+.contact-divider span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary, #555);
+    white-space: nowrap;
+}
+ 
+/* ── Info cards ── */
+.contact-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.contact-info-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 1rem 1.1rem;
+    border-radius: 12px;
+    border: 0.5px solid var(--border-color, rgba(255,255,255,0.08));
+    background: var(--glass-bg, rgba(255,255,255,0.04));
+    text-decoration: none;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
+}
+.contact-info-card:hover {
+    border-color: var(--border-hover, rgba(255,255,255,0.18));
+    background: var(--glass-bg-hover, rgba(255,255,255,0.08));
+}
+.card-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    margin-bottom: 2px;
+}
+.card-icon--email { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
+.card-icon--loc   { background: rgba(52,  211, 153, 0.15); color: #34d399; }
+ 
+.contact-info-card h4 {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary, #555);
+}
+.contact-info-card p {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary, #eee);
+    word-break: break-all;
+}
+.card-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--text-tertiary, #555);
+    opacity: 0;
+    transition: opacity 0.2s, right 0.2s;
+}
+.contact-info-card:hover .card-arrow { opacity: 1; right: 10px; }
+ 
+/* ── Social buttons ── */
+.contact-socials {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 20px;
+    border-radius: 8px;
+    border: 0.5px solid var(--border-color, rgba(255,255,255,0.08));
+    background: var(--glass-bg, rgba(255,255,255,0.04));
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-primary, #eee);
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.social-btn i { font-size: 16px; }
+.social-btn:hover { transform: translateY(-2px); }
+.social-btn--linkedin:hover { color: #0077b5; border-color: rgba(0,119,181,0.4); background: rgba(0,119,181,0.08); }
+.social-btn--github:hover   { border-color: var(--border-hover, rgba(255,255,255,0.2)); background: var(--glass-bg-hover, rgba(255,255,255,0.08)); }
+ 
+/* ── CTA buttons ── */
+.contact-cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 0;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, box-shadow 0.2s, opacity 0.15s;
+}
+.cta-btn:hover  { transform: translateY(-2px); }
+.cta-btn:active { transform: scale(0.98); }
+.cta-btn i { font-size: 16px; }
+ 
+.cta-btn--outline {
+    background: var(--glass-bg, rgba(255,255,255,0.04));
+    border: 0.5px solid var(--border-color, rgba(255,255,255,0.1));
+    color: var(--text-primary, #eee);
+}
+.cta-btn--outline:hover {
+    background: var(--glass-bg-hover, rgba(255,255,255,0.08));
+    border-color: var(--border-hover, rgba(255,255,255,0.2));
+}
+.cta-btn--primary {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: #fff;
+    box-shadow: 0 2px 14px rgba(124, 58, 237, 0.3);
+}
+.cta-btn--primary:hover {
+    box-shadow: 0 4px 22px rgba(124, 58, 237, 0.5);
+    opacity: 0.95;
+}
