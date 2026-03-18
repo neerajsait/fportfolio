@@ -2336,3 +2336,37 @@ a:hover {
         font-size: 0.6rem;
     }
 }
+
+
+
+/* Icon strip pill — base */
+.app-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    width: fit-content;
+}
+
+.app-strip i {
+    font-size: 12px;
+}
+
+/* Vibe coded — warm orange */
+.app-strip--vibe {
+    background: rgba(225, 112, 85, 0.12);
+    color: #e17055;
+    border: 0.5px solid rgba(225, 112, 85, 0.35);
+}
+
+/* Team project — cool blue */
+.app-strip--team {
+    background: rgba(9, 132, 227, 0.1);
+    color: #0984e3;
+    border: 0.5px solid rgba(9, 132, 227, 0.3);
+}
